@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nataliesudoku",
+  "compatibility_date": "2026-03-10",
+  "observability": {
+    "enabled": true
+  },
+  "main": "./dist/_worker.js",
+  "compatibility_flags": [
+    "global_fetch_strictly_public",
+    "nodejs_compat"
+  ],
+  "assets": {
+    "binding": "ASSET",
+    "directory": "./dist"
+  }
+}

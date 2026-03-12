@@ -1,5 +1,5 @@
 {
-  "name": "my-qwik-empty-starter",
+  "name": "nataliesudoku",
   "description": "Blank project with routing included",
   "engines": {
     "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
@@ -13,16 +13,17 @@
     "build.preview": "vite build --ssr src/entry.preview.tsx",
     "build.server": "qwik check-client src dist && vite build -c adapters/cloudflare-pages/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
-    "deploy": "wrangler pages deploy ./dist",
+    "deploy": "pnpm run build && wrangler deploy",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
-    "preview": "qwik build preview && vite preview --open",
+    "preview": "pnpm run build && wrangler dev",
     "serve": "wrangler pages dev ./dist --compatibility-flags=nodejs_als",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "cf-typegen": "wrangler types"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.19.1",
@@ -39,6 +40,6 @@
     "undici": "*",
     "vite": "7.3.1",
     "vite-tsconfig-paths": "^4.2.1",
-    "wrangler": "^4.72.0"
+    "wrangler": "^3.0.0"
   }
 }
